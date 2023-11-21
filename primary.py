@@ -1,16 +1,18 @@
 primary=3
 tab_primarys=[3]
-f=0
+j=0
 #tab_primarys.append(3)
-
-for i in range (100):
+for i in range(100):
+    j=0
     primary=primary+2
-    while tab_primarys[f]<primary/2:
-        f=0
-        if primary % tab_primarys[f]==0:
+    while tab_primarys[j]<1/2 * primary:
+        if primary%tab_primarys[j]==0:
             primary=primary+2
         else:
-            f=f+1
+            j=j+1
+            if j>len(tab_primarys):
+                primary=primary+2
+
     tab_primarys.append(primary)
     print(primary)
 
