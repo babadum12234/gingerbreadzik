@@ -36,10 +36,12 @@ l_talia=52
 rev1 ="true"
 rev2 ="true"
 rev3 ="true"
+rev4="true"
 for i in range(l_talia):
     i=i+1
     cards.append(i)
-
+fcards=cards
+# print(cards)
 def cards_nr_translator(n, m):
     if n == 1:
         x="A"  
@@ -163,10 +165,17 @@ def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
         print(f"║.......{x1b}║   ║.......{x2b}║   ║.......{x3b}║   ║.......{x4b}║")
         print(f"╚═════════╝   ╚═════════╝   ╚═════════╝   ╚═════════╝")
 
-
+hand=0
 def drawing_cards(l_cards, rev1, rev2, rev3, rev4):
     first_card = random.choice(cards)
     cards.remove(first_card)
+<<<<<<< HEAD
+=======
+    if len(cards)<1:
+        cards=fcards
+        cards.remove(bot_hand)
+        cards.remove(player_hand)
+>>>>>>> 1957201 (workingcasino)
     a1 = math.ceil(first_card/4)
     b1 = math.floor(first_card/13)
     a2=0
@@ -178,20 +187,86 @@ def drawing_cards(l_cards, rev1, rev2, rev3, rev4):
     if l_cards>=2:
         second_card = random.choice(cards)
         cards.remove(second_card)
+<<<<<<< HEAD
+=======
+        if len(cards)<1:
+            cards=fcards
+            cards.remove(bot_hand)
+            cards.remove(player_hand)
+>>>>>>> 1957201 (workingcasino)
         a2 = math.ceil(second_card/4)
         b2 = math.floor(second_card/13)
     if l_cards>=3:
         third_card = random.choice(cards)
         cards.remove(third_card)
+<<<<<<< HEAD
+=======
+        if len(cards)<1:
+            cards=fcards
+            cards.remove(bot_hand)
+            cards.remove(player_hand)
+>>>>>>> 1957201 (workingcasino)
         a3 = math.ceil(third_card/4)
         b3 = math.floor(third_card/13)
     if l_cards>=4:
         fourth_card = random.choice(cards)
         cards.remove(fourth_card)
+<<<<<<< HEAD
+=======
+        if len(cards)<1:
+            cards=fcards
+            cards.remove(bot_hand)
+            cards.remove(player_hand)
+>>>>>>> 1957201 (workingcasino)
         a4 = math.ceil(fourth_card/4)
         b4 = math.floor(fourth_card/13)
+    hand=[first_card, second_card, third_card, fourth_card]
     cards_maker(a1, b1, a2, b2, a3, b3, a4, b4, l_cards, rev1, rev2, rev3, rev4)
 
-drawing_cards(3, "false", "true", "false", "true")
+# drawing_cards(4, "true", "true", "true", "true")
 
+<<<<<<< HEAD
 z
+=======
+
+# input("Hello! Welcome to casino!")
+# print("what is your name?")
+# name_player=input()
+# input("What a cool name! let`s try win some money "+name_player+"!")
+# input("in the begining you have 10000$! But you can win more!")
+# input("your oponent is Charlie he hast 10000$ to, be careful! He is a tough competitor!")
+# input("let's start, there are yours cards:")
+# drawing_cards(4, "true", "true", "true", "true")
+# input("if you want to win you must pool as many as you can cards with the same sign, the bigger the cards, the greater chance of winning!")
+# input("Now give the money on the line!")
+# bet=input()
+money_player=10000
+money_bot=10000
+
+print("             ╔═════════╣CASINO╠═════════╗")
+print("             ║´■▀▀▄´´´´´´´´´´´´´´´´´´´´´║")
+print("             ║´´▄▀´´´´´´´´´´´´´´´´´´´´´´║")
+print("             ║´█▄▄▄´´´´´´´´´´´´´´´´´´´´´║")
+print("             ║´´´´´´´´´´´´´´´´´´´´´´´´´´║")
+print("             ║´´´´´¶¶¶¶¶´´´´´´¶¶¶¶¶´´´´´║")
+print("             ║´´´¶¶¶¶¶¶¶¶▄▄▄▄¶¶¶¶¶¶¶¶´´´║")
+print("             ║´´¶¶¶¶¶¶¶■▀¶¶¶¶▀▄¶¶¶¶¶¶¶´´║")
+print("             ║´¶¶¶¶¶¶¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶´║")
+print("             ║´¶¶¶¶¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶¶¶´║")
+print("             ║´´´¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶¶¶´´´║")
+print("             ║´´´´´¶¶¶¶¶▀▀▀▀▀▀▀¶¶¶¶´´´´´║")
+print("             ║´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶´´´´´´´║")
+print("             ║´´´´´´´´´´¶¶¶¶¶¶´´´´´´´´´´║")
+print("             ║´´´´´´´´´´´´¶¶´´´´´´´´´´´´║")
+print("             ║´´´´´´´´´´´´´´´´´´´´´▀▀▀█´║")
+print("             ║´´´´´´´´´´´´´´´´´´´´´´▄▀´´║")
+print("             ║´´´´´´´´´´´´´´´´´´´´´▀▄▄■´║")
+input("             ╚══════╣Las Celejas╠═══════╝")
+
+print("Charlie hand:")
+drawing_cards(4, "false", "false", "false", "false")
+bot_hand=hand
+print("your hand:")
+drawing_cards(4, "true", "true", "true", "true")
+player_hand=hand
+>>>>>>> 1957201 (workingcasino)
