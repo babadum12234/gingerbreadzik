@@ -65,7 +65,6 @@ def cards_nr_translator(n, m):
 
 def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
 
-    
     cards_nr_translator(n1, m1)
     cards_nr_translator(n2, m2)
     cards_nr_translator(n3, m3)
