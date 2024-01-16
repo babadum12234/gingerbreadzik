@@ -166,7 +166,7 @@ def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
         print(f"╚═════════╝   ╚═════════╝   ╚═════════╝   ╚═════════╝")
 
 hand=0
-def drawing_cards(l_cards, rev1, rev2, rev3, rev4):
+def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
     first_card = random.choice(cards)
     cards.remove(first_card)
 <<<<<<< HEAD
@@ -242,7 +242,6 @@ z
 # bet=input()
 money_player=10000
 money_bot=10000
-
 print("             ╔═════════╣CASINO╠═════════╗")
 print("             ║´■▀▀▄´´´´´´´´´´´´´´´´´´´´´║")
 print("             ║´´▄▀´´´´´´´´´´´´´´´´´´´´´´║")
@@ -263,10 +262,22 @@ print("             ║´´´´´´´´´´´´´´´´´´´´´´▄▀´´║
 print("             ║´´´´´´´´´´´´´´´´´´´´´▀▄▄■´║")
 input("             ╚══════╣Las Celejas╠═══════╝")
 
-print("Charlie hand:")
-drawing_cards(4, "false", "false", "false", "false")
+
+print(f"Charlie hand:                                  {money_bot}$")
+drawing_cards(cards, 4, "false", "false", "false", "false")
 bot_hand=hand
-print("your hand:")
-drawing_cards(4, "true", "true", "true", "true")
+print(f"your hand:                                     {money_player}$")
+drawing_cards(cards,4, "true", "true", "true", "true")
 player_hand=hand
+<<<<<<< HEAD
 >>>>>>> 1957201 (workingcasino)
+=======
+bet=input()
+while int(bet)<100 or int(bet)>money_player:
+    if int(bet)<100:
+        print("too little, you can least give 100$")
+        bet=input()
+    if int(bet)>money_player:
+        print("too much, please try again:")
+        bet=input()
+>>>>>>> 017c820 (.)
