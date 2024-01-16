@@ -169,13 +169,10 @@ hand=0
 def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
     first_card = random.choice(cards)
     cards.remove(first_card)
-<<<<<<< HEAD
-=======
     if len(cards)<1:
         cards=fcards
         cards.remove(bot_hand)
         cards.remove(player_hand)
->>>>>>> 1957201 (workingcasino)
     a1 = math.ceil(first_card/4)
     b1 = math.floor(first_card/13)
     a2=0
@@ -187,37 +184,29 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
     if l_cards>=2:
         second_card = random.choice(cards)
         cards.remove(second_card)
-<<<<<<< HEAD
-=======
         if len(cards)<1:
             cards=fcards
             cards.remove(bot_hand)
             cards.remove(player_hand)
->>>>>>> 1957201 (workingcasino)
         a2 = math.ceil(second_card/4)
         b2 = math.floor(second_card/13)
     if l_cards>=3:
         third_card = random.choice(cards)
         cards.remove(third_card)
-<<<<<<< HEAD
-=======
+
         if len(cards)<1:
             cards=fcards
             cards.remove(bot_hand)
             cards.remove(player_hand)
->>>>>>> 1957201 (workingcasino)
         a3 = math.ceil(third_card/4)
         b3 = math.floor(third_card/13)
     if l_cards>=4:
         fourth_card = random.choice(cards)
         cards.remove(fourth_card)
-<<<<<<< HEAD
-=======
         if len(cards)<1:
             cards=fcards
             cards.remove(bot_hand)
             cards.remove(player_hand)
->>>>>>> 1957201 (workingcasino)
         a4 = math.ceil(fourth_card/4)
         b4 = math.floor(fourth_card/13)
     hand=[first_card, second_card, third_card, fourth_card]
@@ -225,9 +214,6 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
 
 # drawing_cards(4, "true", "true", "true", "true")
 
-<<<<<<< HEAD
-z
-=======
 
 # input("Hello! Welcome to casino!")
 # print("what is your name?")
@@ -262,6 +248,50 @@ print("             ║´´´´´´´´´´´´´´´´´´´´´´▄▀´´║
 print("             ║´´´´´´´´´´´´´´´´´´´´´▀▄▄■´║")
 input("             ╚══════╣Las Celejas╠═══════╝")
 
+def beting(bet):
+    while int(bet)<100 or int(bet)>money_player:
+        if int(bet)<100:
+            print("too little, you can least give 100$")
+            bet=input()
+        if int(bet)>money_player:
+            print("too much, please try again:")
+            bet=input()
+    print(f"your bet: {bet}$                    Charlie bet: {bet}$")
+
+discarding=[]
+def decisions(l_disc, discarding):
+    while l_disc<=4 or l_disc>=0 or s<=4 or s>=0:
+        if l_disc==0:
+            print("next")
+            break
+        elif l_disc==1:
+            s=input()
+            discarding.append(s)
+            break
+        elif l_disc==2:
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            break
+        elif l_disc==3:
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            break
+        elif l_disc==4:
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            s=input()
+            discarding.append(s)
+            break
 
 print(f"Charlie hand:                                  {money_bot}$")
 drawing_cards(cards, 4, "false", "false", "false", "false")
@@ -269,15 +299,9 @@ bot_hand=hand
 print(f"your hand:                                     {money_player}$")
 drawing_cards(cards,4, "true", "true", "true", "true")
 player_hand=hand
-<<<<<<< HEAD
->>>>>>> 1957201 (workingcasino)
-=======
 bet=input()
-while int(bet)<100 or int(bet)>money_player:
-    if int(bet)<100:
-        print("too little, you can least give 100$")
-        bet=input()
-    if int(bet)>money_player:
-        print("too much, please try again:")
-        bet=input()
->>>>>>> 017c820 (.)
+beting(bet)
+decision=input()
+l_disc=int(input())
+decisions(l_disc, discarding)
+print(discarding)
