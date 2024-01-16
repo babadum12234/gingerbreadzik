@@ -166,7 +166,7 @@ def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
 
 def drawing_cards(l_cards, rev1, rev2, rev3, rev4):
     first_card = random.choice(cards)
-    cards.pop(first_card)
+    cards.remove(first_card)
     a1 = math.ceil(first_card/4)
     b1 = math.floor(first_card/13)
     a2=0
@@ -177,20 +177,21 @@ def drawing_cards(l_cards, rev1, rev2, rev3, rev4):
     b4=0
     if l_cards>=2:
         second_card = random.choice(cards)
-        cards.pop(second_card)
+        cards.remove(second_card)
         a2 = math.ceil(second_card/4)
         b2 = math.floor(second_card/13)
     if l_cards>=3:
         third_card = random.choice(cards)
-        cards.pop(third_card)
+        cards.remove(third_card)
         a3 = math.ceil(third_card/4)
         b3 = math.floor(third_card/13)
     if l_cards>=4:
         fourth_card = random.choice(cards)
-        cards.pop(fourth_card)
+        cards.remove(fourth_card)
         a4 = math.ceil(fourth_card/4)
         b4 = math.floor(fourth_card/13)
     cards_maker(a1, b1, a2, b2, a3, b3, a4, b4, l_cards, rev1, rev2, rev3, rev4)
 
 drawing_cards(3, "false", "true", "false", "true")
 
+z
