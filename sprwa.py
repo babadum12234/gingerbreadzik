@@ -1,22 +1,3 @@
-# print("╔══════════════════════════╗")
-# print("║´■▀▀▄´´´´´´´´´´´´´´´´´´´´´║")
-# print("║´´▄▀´´´´´´´´´´´´´´´´´´´´´´║")
-# print("║´█▄▄▄´´´´´´´´´´´´´´´´´´´´´║")
-# print("║´´´´´´´´´´´´´´´´´´´´´´´´´´║")
-# print("║´´´´´¶¶¶¶¶´´´´´´¶¶¶¶¶´´´´´║")
-# print("║´´´¶¶¶¶¶¶¶¶▄▄▄▄¶¶¶¶¶¶¶¶´´´║")
-# print("║´´¶¶¶¶¶¶¶■▀¶¶¶¶▀▄¶¶¶¶¶¶¶´´║")
-# print("║´¶¶¶¶¶¶¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶´║")
-# print("║´¶¶¶¶¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶¶¶´║")
-# print("║´´´¶¶¶¶¶¶¶▄▀¶¶¶¶¶¶¶¶¶¶¶´´´║")
-# print("║´´´´´¶¶¶¶¶▀▀▀▀▀▀▀¶¶¶¶´´´´´║")
-# print("║´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶´´´´´´´║")
-# print("║´´´´´´´´´´¶¶¶¶¶¶´´´´´´´´´´║")
-# print("║´´´´´´´´´´´´¶¶´´´´´´´´´´´´║")
-# print("║´´´´´´´´´´´´´´´´´´´´´▀▀▀█´║")
-# print("║´´´´´´´´´´´´´´´´´´´´´´▄▀´´║")
-# print("║´´´´´´´´´´´´´´´´´´´´´▀▄▄■´║")
-# print("╚══════════════════════════╝")
 # ╔═════════╗   
 # ║.........║  
 # ║...§§§...║  
@@ -27,9 +8,9 @@
 # ║.........║   
 # ╚═════════╝
 
-
 import random
 import math
+
 wsp_cards = []
 cards=[]
 l_talia=52
@@ -166,8 +147,14 @@ def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
         print(f"╚═════════╝   ╚═════════╝   ╚═════════╝   ╚═════════╝")
 
 hand=0
-def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
-    first_card = random.choice(cards)
+def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card,fo_card):
+    global s1,s2,s3,s4
+
+    if fo_card==0:
+        first_card = random.choice(cards)
+    else:
+        first_card = fi_card
+
     cards.remove(first_card)
     if len(cards)<1:
         cards=fcards
@@ -182,7 +169,11 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
     a4=0
     b4=0
     if l_cards>=2:
-        second_card = random.choice(cards)
+        if fo_card==0:
+            second_card = random.choice(cards)
+        else:
+            second_card = s_cards
+
         cards.remove(second_card)
         if len(cards)<1:
             cards=fcards
@@ -191,7 +182,10 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
         a2 = math.ceil(second_card/4)
         b2 = math.floor(second_card/13)
     if l_cards>=3:
-        third_card = random.choice(cards)
+        if fo_card==0:
+            third_card = random.choice(cards)
+        else:
+            third_card = th_card
         cards.remove(third_card)
 
         if len(cards)<1:
@@ -201,7 +195,11 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4):
         a3 = math.ceil(third_card/4)
         b3 = math.floor(third_card/13)
     if l_cards>=4:
-        fourth_card = random.choice(cards)
+        if fo_card==0:
+            fourth_card = random.choice(cards)
+        else:
+            fourth_card = fo_card
+        
         cards.remove(fourth_card)
         if len(cards)<1:
             cards=fcards
@@ -258,50 +256,60 @@ def beting(bet):
             bet=input()
     print(f"your bet: {bet}$                    Charlie bet: {bet}$")
 
-discarding=[]
-def decisions(l_disc, discarding):
+
+def decicion(l_disc):
     while l_disc<=4 or l_disc>=0 or s<=4 or s>=0:
         if l_disc==0:
             print("next")
             break
         elif l_disc==1:
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             break
         elif l_disc==2:
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             break
         elif l_disc==3:
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             s=input()
-            discarding.append(s)
+            player_hand[s-1]=0
             break
         elif l_disc==4:
             s=input()
-            discarding.append(s)
+            player_hand[s]=0
             s=input()
-            discarding.append(s)
+            player_hand[s]=0
             s=input()
-            discarding.append(s)
+            player_hand[s]=0
             s=input()
-            discarding.append(s)
+            player_hand[s]=0
             break
 
+# def cards_play(bot_hand,player_hand,money_bot,money_player):
 print(f"Charlie hand:                                  {money_bot}$")
-drawing_cards(cards, 4, "false", "false", "false", "false")
+drawing_cards(cards, 4, "false", "false", "false", "false",0,0,0,0)
 bot_hand=hand
 print(f"your hand:                                     {money_player}$")
-drawing_cards(cards,4, "true", "true", "true", "true")
+drawing_cards(cards,4, "true", "true", "true", "true",0,0,0,0)
 player_hand=hand
 bet=input()
 beting(bet)
-decision=input()
+# cards_play()
+print("ile kart chcesz wyrzucić:")
 l_disc=int(input())
-decisions(l_disc, discarding)
-print(discarding)
+decicion(l_disc)
+# bot_hand[s1-1]
+print(f"Charlie hand:                                  {money_bot}$")
+drawing_cards(cards, 4, "false", "false", "false", "false",bot_hand[0],bot_hand[1],bot_hand[2],bot_hand[3])
+bot_hand=hand
+print(f"your hand:                                     {money_player}$")
+drawing_cards(cards,4, "true", "true", "true", "true",player_hand[0],player_hand[1],player_hand[2],player_hand[3])
+player_hand=hand
+bet=input()
+beting(bet)

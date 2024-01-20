@@ -16,6 +16,7 @@ wordfind=random.choice(words)
 dlugosc=len(wordfind)
 lifes=10
 print(wordfind)
+wrd=list(wordfind)
 
 
 # print("      _______")
@@ -27,7 +28,10 @@ print(wordfind)
 # print("     |")
 # print("    _|___")
 
-wrd=dlugosc*"_ "
+for i in range(len(wordfind)):
+
+    wrd[1]="_"
+    
 letter=input()
 if letter==wordfind:
     letter = 0
