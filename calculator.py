@@ -4,7 +4,7 @@ print("wybierz znak z posrod: +,-,x,/; jeeli chcesz wyłaczyć kliknij d i klikn
 z = input()
 znaki=["+", "-", "x", "/", "%"]
 while z not in znaki:
-    print("Padales zly znak, sprobuj jeszcze raz, wybierz znak z posrod: +,-,x,/; i kliknij enter")
+    print("Padales zly znak, sprobuj jeszcze raz, wybierz znak z posrod: +,-,x,/,% ; i kliknij enter")
     z = input()
 print("podaj druga liczbe i kliknij enter")
 b = int(input())

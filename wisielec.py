@@ -1,22 +1,22 @@
 import random
-print("888                                                           ")
-print("888                                                           ")
-print("888                                                           ")
-print("88888b.  8888b. 88888b.  .d88b. 88888b.d88b.  8888b. 88888b.  ")
-print("888  88b     88b888  88bd88P 88b888  888  88b     88b888  88b ")
-print("888  888.d888888888  888888  888888  888  888.d888888888  888 ")
-print("888  888888  888888  888Y88b 888888  888  888888  888888  888 ")
-print("888  888 Y888888888  888  Y88888888  888  888 Y888888888  888 ")
-print("                             888                              ")
-print("                        Y8b d88P                              ")
-print("                          Y88P   ")
-
-words=["kokos"]
-wordfind=random.choice(words)
-dlugosc=len(wordfind)
+print("╔═══════════════════════════════════════════════════════════════╗")
+print("║ 888                                                           ║")
+print("║ 888                                                           ║")
+print("║ 888                                                           ║")
+print("║ 88888b.  8888b. 88888b.  .d88b. 88888b.d88b.  8888b. 88888b.  ║")
+print("║ 888  88b     88b888  88bd88P 88b888  888  88b     88b888  88b ║")
+print("║ 888  888.d888888888  888888  888888  888  888.d888888888  888 ║")
+print("║ 888  888888  888888  888Y88b 888888  888  888888  888888  888 ║")
+print("║ 888  888 Y888888888  888  Y88888888  888  888 Y888888888  888 ║")
+print("║                              888                              ║")
+print("║                         Y8b d88P                              ║")
+print("╚═══════════════════════════════════════════════════════════════╝")
+input("Aby zaczac, kliknij enter")
+words=["kokos", "jablko", "niedzwiedz", "informatyka"]
+haslo=random.choice(words)
 lifes=10
-print(wordfind)
-wrd=list(wordfind)
+# print(haslo)
+wrd=list(haslo)
 
 
 # print("      _______")
@@ -28,16 +28,19 @@ wrd=list(wordfind)
 # print("     |")
 # print("    _|___")
 
-for i in range(len(wordfind)):
+for i in range(len(haslo)):
+    wrd[i]="_"
 
-    wrd[1]="_"
-    
-letter=input()
-if letter==wordfind:
-    letter = 0
-else:
-    lifes=lifes-1
 while lifes>0:
+    print(' '.join(wrd))
+    print("podaj litere:")
+    letter=input()
+    if letter in haslo:
+        for i in range(len(haslo)):
+            if haslo[i]==letter:
+                wrd[i]=letter
+    else:
+        lifes=lifes-1
     if lifes==9:
         print("              ")
         print("              ")
@@ -47,9 +50,7 @@ while lifes>0:
         print("               ")
         print("      ")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==8:
         print("              ")
         print("     |        ")
@@ -59,9 +60,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==7:
         print("      _______")
         print("     |/      |")
@@ -71,9 +70,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==6:
         print("      _______")
         print("     |/      |")
@@ -83,9 +80,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==5:
         print("      _______")
         print("     |/      |")
@@ -95,9 +90,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==4:
         print("      _______")
         print("     |/      |")
@@ -107,9 +100,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==3:
         print("      _______")
         print("     |/      |")
@@ -119,9 +110,7 @@ while lifes>0:
         print("     |         ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==2:
         print("      _______")
         print("     |/      |")
@@ -131,9 +120,7 @@ while lifes>0:
         print("     |      /   ")
         print("     |")
         print("    _|___")
-        lifes=lifes-1
         print(lifes)
-        letter=input()
     elif lifes==1:
         print("      _______")
         print("     |/      |")
@@ -144,7 +131,6 @@ while lifes>0:
         print("     |")
         print("    _|___")
         print("YOU DIED!")
-        lifes=lifes-1
         print("                            __xxxxxxxxxxxxxxxx___.")
         print("                        _gxXXXXXXXXXXXXXXXXXXXXXXXX!x_")
         print("                   __x!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!x_")
@@ -152,17 +138,17 @@ while lifes>0:
         print("              ,gXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!_")
         print("            _!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!.")
         print("          gXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXs")
-        print("        ,!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!.")
-        print("       g!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
-        print("      iXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
-        print("     ,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx")
+        print("        ,!XXXXXXXXXXXXXXXXXXXX XXX XX   XX XXX XXXXXXXXXXXXXXXXXXXX!.")
+        print("       g!XXXXXXXXXXXXXXXXXXXXXX X XX XXX X XXX XXXXXXXXXXXXXXXXXXXXX!")
+        print("      iXXXXXXXXXXXXXXXXXXXXXXXXX XXX XXX X XXX XXXXXXXXXXXXXXXXXXXXXX!")
+        print("     ,XXXXXXXXXXXXXXXXXXXXXXXXXX XXXX   XXX   XXXXXXXXXXXXXXXXXXXXXXXXx")
         print("     !XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx")
-        print("   ,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx")
-        print("   !XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXi")
-        print("  dXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-        print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
-        print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
-        print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("   ,XXXXXXXXXXXXXXXXXXXXXXXX   XXXXX XX      XX   XXXXXXXXXXXXXXXXXXXXXXx")
+        print("   !XXXXXXXXXXXXXXXXXXXXXXXX XX  XXX XX XXXXXXX XX  XXXXXXXXXXXXXXXXXXXXXi")
+        print("  dXXXXXXXXXXXXXXXXXXXXXXXXX XXXX XX XX   XXXXX XXXX XXXXXXXXXXXXXXXXXXXXX")
+        print("  XXXXXXXXXXXXXXXXXXXXXXXXXX XXXX XX XX   XXXXX XXXX XXXXXXXXXXXXXXXXXXXXX!")
+        print("  XXXXXXXXXXXXXXXXXXXXXXXXXX XX  XXX XX XXXXXXX XX  XXXXXXXXXXXXXXXXXXXXXX!")
+        print("  XXXXXXXXXXXXXXXXXXXXXXXXXX   XXXXX XX      XX   XXXXXXXXXXXXXXXXXXXXXXXXX")
         print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
         print("  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX!")
@@ -213,4 +199,3 @@ while lifes>0:
         print("                                 '~VvXXXXXXXV~~")
         print("                                       ~~")
         break
-

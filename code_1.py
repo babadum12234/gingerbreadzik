@@ -1,8 +1,11 @@
 import math
 print("wpisz licbe:")
 a=int(input())
-while a>3999:
-    print("Liczba jest za wielka, wpistyz niejsza liczbe:")
+while a>3999 or a<=0:
+    if a>3999:
+        print("Liczba jest za wielka, wpisz mniejsza liczbe:")
+    else:
+        print("Liczba jest za mala, wpisz wieksza liczbe:")
     a=int(input())
 
 romanumber1=" "

@@ -1,6 +1,0 @@
-input("Hello! Welcome to casino!")
-print("what is your name?")
-name_player=input()
-input("What a cool name! let`s win some money "+name_player+"!")
-input("in the begining you have 10000$! But you can win more!")
-input("your oponent is Charlie he hast 10000$ to, be careful! He is a tough competitor!")

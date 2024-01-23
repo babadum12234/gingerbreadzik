@@ -257,39 +257,49 @@ def beting(bet):
     print(f"your bet: {bet}$                    Charlie bet: {bet}$")
 
 
-def decicion(l_disc):
-    while l_disc<=4 or l_disc>=0 or s<=4 or s>=0:
-        if l_disc==0:
-            print("next")
-            break
-        elif l_disc==1:
-            s=input()
-            player_hand[s-1]=0
-            break
-        elif l_disc==2:
-            s=input()
-            player_hand[s-1]=0
-            s=input()
-            player_hand[s-1]=0
-            break
-        elif l_disc==3:
-            s=input()
-            player_hand[s-1]=0
-            s=input()
-            player_hand[s-1]=0
-            s=input()
-            player_hand[s-1]=0
-            break
-        elif l_disc==4:
-            s=input()
-            player_hand[s]=0
-            s=input()
-            player_hand[s]=0
-            s=input()
-            player_hand[s]=0
-            s=input()
-            player_hand[s]=0
-            break
+# def decicion(l_disc):
+#     while l_disc<=4 or l_disc>=0 or s<=4 or s>=0:
+#         if l_disc==0:
+#             print("next")
+#             break
+#         elif l_disc==1:
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             break
+#         elif l_disc==2:
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             break
+#         elif l_disc==3:
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             break
+#         elif l_disc==4:
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             s=input()
+#             s=int(s)
+#             player_hand[s-1]=0
+#             break
 
 # def cards_play(bot_hand,player_hand,money_bot,money_player):
 print(f"Charlie hand:                                  {money_bot}$")
@@ -301,15 +311,15 @@ player_hand=hand
 bet=input()
 beting(bet)
 # cards_play()
-print("ile kart chcesz wyrzucić:")
-l_disc=int(input())
-decicion(l_disc)
+# print("ile kart chcesz wyrzucić:")
+# l_disc=int(input())
+# decicion(l_disc)
 # bot_hand[s1-1]
-print(f"Charlie hand:                                  {money_bot}$")
-drawing_cards(cards, 4, "false", "false", "false", "false",bot_hand[0],bot_hand[1],bot_hand[2],bot_hand[3])
-bot_hand=hand
-print(f"your hand:                                     {money_player}$")
-drawing_cards(cards,4, "true", "true", "true", "true",player_hand[0],player_hand[1],player_hand[2],player_hand[3])
-player_hand=hand
-bet=input()
-beting(bet)
+# print(f"Charlie hand:                                  {money_bot}$")
+# drawing_cards(cards, 4, "false", "false", "false", "false",bot_hand[0],bot_hand[1],bot_hand[2],bot_hand[3])
+# bot_hand=hand
+# print(f"your hand:                                     {money_player}$")
+# drawing_cards(cards,4, "true", "true", "true", "true",player_hand[0],player_hand[1],player_hand[2],player_hand[3])
+# player_hand=hand
+# bet=input()
+# beting(bet)
