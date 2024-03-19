@@ -10,7 +10,7 @@ h=0
 print("2")
 if a == 1:
     print("3")
-while h==h:
+while True:
     h+=1
     j=0
     primary=primary+2

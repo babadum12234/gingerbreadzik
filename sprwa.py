@@ -11,6 +11,8 @@
 import random
 import math
 
+ofbet=0
+hand=[]
 wsp_cards = []
 cards=[]
 l_talia=52
@@ -24,6 +26,7 @@ for i in range(l_talia):
 fcards=cards
 # print(cards)
 def cards_nr_translator(n, m):
+    global cards
     if n == 1:
         x="A"  
     elif n == 11:
@@ -146,16 +149,19 @@ def cards_maker(n1, m1, n2, m2, n3, m3, n4, m4, l, rev1, rev2, rev3, rev4):
         print(f"║.......{x1b}║   ║.......{x2b}║   ║.......{x3b}║   ║.......{x4b}║")
         print(f"╚═════════╝   ╚═════════╝   ╚═════════╝   ╚═════════╝")
 
-hand=0
 def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card,fo_card):
-    global s1,s2,s3,s4
-
-    if fo_card==0:
+    global s1,s2,s3,s4, first_card, second_card, third_card, fourth_card, ofbet
+    s1=0
+    s2=0
+    s3=0
+    s4=0
+    if fi_card==0:
         first_card = random.choice(cards)
     else:
         first_card = fi_card
-
-    cards.remove(first_card)
+    if cards == first_card:
+        if first_card==cards:
+            cards.remove(first_card)
     if len(cards)<1:
         cards=fcards
         cards.remove(bot_hand)
@@ -169,12 +175,13 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card
     a4=0
     b4=0
     if l_cards>=2:
-        if fo_card==0:
+        if s_cards==0:
             second_card = random.choice(cards)
         else:
             second_card = s_cards
-
-        cards.remove(second_card)
+        if cards == second_card:
+            if second_card==cards:
+                cards.remove(second_card)
         if len(cards)<1:
             cards=fcards
             cards.remove(bot_hand)
@@ -182,11 +189,12 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card
         a2 = math.ceil(second_card/4)
         b2 = math.floor(second_card/13)
     if l_cards>=3:
-        if fo_card==0:
+        if th_card==0:
             third_card = random.choice(cards)
         else:
             third_card = th_card
-        cards.remove(third_card)
+        if first_card==cards:
+            cards.remove(third_card)
 
         if len(cards)<1:
             cards=fcards
@@ -199,14 +207,15 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card
             fourth_card = random.choice(cards)
         else:
             fourth_card = fo_card
-        
-        cards.remove(fourth_card)
+        if first_card==cards:
+            cards.remove(fourth_card)
         if len(cards)<1:
             cards=fcards
             cards.remove(bot_hand)
             cards.remove(player_hand)
         a4 = math.ceil(fourth_card/4)
         b4 = math.floor(fourth_card/13)
+    global hand
     hand=[first_card, second_card, third_card, fourth_card]
     cards_maker(a1, b1, a2, b2, a3, b3, a4, b4, l_cards, rev1, rev2, rev3, rev4)
 
@@ -224,6 +233,34 @@ def drawing_cards(cards, l_cards, rev1, rev2, rev3, rev4,fi_card,s_cards,th_card
 # input("if you want to win you must pool as many as you can cards with the same sign, the bigger the cards, the greater chance of winning!")
 # input("Now give the money on the line!")
 # bet=input()
+    
+
+def stop():
+    global ofbet
+    print(hand)
+    print(f"Charlie hand:                                  {money_bot}$")
+    drawing_cards(cards, 4, "true", "true", "true", "true",0,0,0,0)
+    print(f"your hand:                                     {money_player}$")
+    drawing_cards(cards,4, "true", "true", "true", "true",0,0,0,0)
+    print(f"your bet: {ofbet}$                    Charlie bet: {ofbet}$")
+    points=0
+    group=0
+    for il in range(2):
+        for ig in range(3):
+            if hand[ig+1]==hand[il]:
+                group=+1
+                for im in range(3):
+                    if ig+1!=im:
+                        if hand[ig+1]==hand[im]:
+                            group=+1
+                points=points+(group+1)*math.ceil(hand[ig]/4)
+                print(points)
+    input()
+    ofbet=0
+
+
+
+
 money_player=10000
 money_bot=10000
 print("             ╔═════════╣CASINO╠═════════╗")
@@ -247,18 +284,25 @@ print("             ║´´´´´´´´´´´´´´´´´´´´´▀▄▄■´�
 input("             ╚══════╣Las Celejas╠═══════╝")
 
 def beting(bet):
+    global money_player, money_bot, ofbet
     while int(bet)<100 or int(bet)>money_player:
         if int(bet)<100:
             print("too little, you can least give 100$")
             bet=input()
+            bet=int(bet)
         if int(bet)>money_player:
             print("too much, please try again:")
             bet=input()
-    print(f"your bet: {bet}$                    Charlie bet: {bet}$")
+            bet=int(bet)
+        money_player=-bet
+        money_bot=-bet
+        ofbet=ofbet+bet
+    print(f"your bet: {ofbet}$                    Charlie bet: {ofbet}$")
 
 
 def decicion(l_disc):
-    while l_disc<=4 or l_disc>=0 or s<=4 or s>=0:
+    s=0
+    while l_disc<=4 or l_disc>=0 or s<=4 or s>=0 or l_disc==100:
         if l_disc==0:
             print("next")
             break
@@ -274,7 +318,6 @@ def decicion(l_disc):
             s=input()
             s=int(s)
             player_hand[s-1]=0
-            break
         elif l_disc==3:
             s=input()
             s=int(s)
@@ -300,6 +343,16 @@ def decicion(l_disc):
             s=int(s)
             player_hand[s-1]=0
             break
+        elif l_disc==100:
+            stop()
+            break
+        elif l_disc==10:
+            bet=input()
+            beting(bet)
+            break
+
+
+
 
 # def cards_play(bot_hand,player_hand,money_bot,money_player):
 print(f"Charlie hand:                                  {money_bot}$")
@@ -307,19 +360,20 @@ drawing_cards(cards, 4, "false", "false", "false", "false",0,0,0,0)
 bot_hand=hand
 print(f"your hand:                                     {money_player}$")
 drawing_cards(cards,4, "true", "true", "true", "true",0,0,0,0)
+
 player_hand=hand
 bet=input()
 beting(bet)
-# cards_play()
-print("ile kart chcesz wyrzucić:")
+print("co chcesz zrobić:")
 l_disc=int(input())
 decicion(l_disc)
-# bot_hand[s1-1]
+
 print(f"Charlie hand:                                  {money_bot}$")
 drawing_cards(cards, 4, "false", "false", "false", "false",bot_hand[0],bot_hand[1],bot_hand[2],bot_hand[3])
 bot_hand=hand
 print(f"your hand:                                     {money_player}$")
 drawing_cards(cards,4, "true", "true", "true", "true",player_hand[0],player_hand[1],player_hand[2],player_hand[3])
+
 player_hand=hand
 bet=input()
-beting(bet)
+beting(bet) 
